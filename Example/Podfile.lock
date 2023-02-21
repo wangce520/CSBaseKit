@@ -1,0 +1,16 @@
+PODS:
+  - CSBaseKit (0.1.0)
+
+DEPENDENCIES:
+  - CSBaseKit (from `../`)
+
+EXTERNAL SOURCES:
+  CSBaseKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CSBaseKit: b8c25ced247a9e08477576c5d8643942dbce5b64
+
+PODFILE CHECKSUM: 7e822403beaf3c394fa80d601b13afe808a708bb
+
+COCOAPODS: 1.11.3

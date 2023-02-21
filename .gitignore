@@ -1,0 +1,10 @@
+Pods/
+*.xcuserstate
+build/
+xcuserdata
+*.pbxuser
+.idea/
+.DS_Store
+ip.txt
+__pycache__/
+*.py[cod]
