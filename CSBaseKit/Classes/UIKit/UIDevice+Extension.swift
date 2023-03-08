@@ -13,8 +13,8 @@ extension UIDevice {
     var safeAreaInsets : UIEdgeInsets {
         var edgeInsets = UIEdgeInsets.zero
         if #available(iOS 11.0, *) {
-            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-            edgeInsets = window?.safeAreaInsets ?? UIEdgeInsets.zero
+            let window = UIApplication.shared.currentKeyWindow
+            edgeInsets = window.safeAreaInsets
         }
         return edgeInsets
     }
@@ -23,8 +23,8 @@ extension UIDevice {
     var statusBarHeight : CGFloat {
         var statusBarHeight: CGFloat = 0
         if #available(iOS 13.0, *) {
-            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-            statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+            let window = UIApplication.shared.currentKeyWindow
+            statusBarHeight = window.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         } else {
             statusBarHeight = UIApplication.shared.statusBarFrame.height
         }

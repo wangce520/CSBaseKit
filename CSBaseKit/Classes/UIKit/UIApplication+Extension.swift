@@ -9,6 +9,10 @@ import Foundation
 
 extension UIApplication {
     
-//    var keyWindow
+    // 获取当前的window
+    var currentKeyWindow : UIWindow {
+        let window = windows.filter {$0.isKeyWindow}.first!
+        return window
+    }
     
 }

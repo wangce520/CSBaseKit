@@ -141,3 +141,63 @@ extension UIView {
     }
     
 }
+
+fileprivate let retryActionSaveKey = "__tipview_retryAction"
+fileprivate let tipViewSaveKey = "__tipview"
+
+// MARK: - TipView
+extension UIView {
+    
+    /// 展示tipView
+    func showTipView(_ tipView : UIView, retryAction : (()->Void)? = nil) {
+        // 移除现有的视图
+        self.currentTipView?.removeFromSuperview()
+        self.currentTipView = tipView
+        // 持有回调数据
+        self.retryAction = retryAction
+        
+        tipView.frame = self.bounds
+        self.addSubview(tipView)
+        
+        if self.retryAction != nil {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(didClickTipView))
+            tipView.addGestureRecognizer(tap)
+        }
+    }
+    
+    /// 移除提示view
+    func removeTipView(){
+        if let currentTipView = self.currentTipView {
+            currentTipView.removeFromSuperview()
+            self.currentTipView = nil
+        }
+    }
+    
+    // 当前展示的视图
+    var currentTipView: UIView? {
+        get {
+            objc_getAssociatedObject(self, tipViewSaveKey) as? UIView
+        }
+        set {
+            objc_setAssociatedObject(self, tipViewSaveKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+        }
+    }
+    
+    // 点击事件
+    private var retryAction : (()->Void)? {
+        get {
+            objc_getAssociatedObject(self, retryActionSaveKey) as? () -> Void
+        }
+        set {
+            objc_setAssociatedObject(self, retryActionSaveKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+        }
+    }
+    
+    // 点击提示视图
+    @objc func didClickTipView(){
+        self.removeTipView() // 先移除提示视图,再进行回调
+        if let retryAction = self.retryAction {
+            retryAction()
+        }
+    }
+}
