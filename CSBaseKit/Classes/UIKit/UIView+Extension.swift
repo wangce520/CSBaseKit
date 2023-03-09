@@ -2,7 +2,7 @@
 import UIKit
 
 // MARK: - 设置Frame
-extension UIView {
+public extension UIView {
     
     var width: CGFloat {
         get { return self.frame.size.width }

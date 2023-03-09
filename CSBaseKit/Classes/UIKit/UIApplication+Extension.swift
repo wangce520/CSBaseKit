@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension UIApplication {
+public extension UIApplication {
     
     // 获取当前的window
     var currentKeyWindow : UIWindow {

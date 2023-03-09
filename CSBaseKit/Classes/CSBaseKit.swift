@@ -7,10 +7,4 @@
 
 import Foundation
 
-/// 输出Debug信息
-func print_log<T>(_ message:T, file: String = #file, line: Int = #line) {
-    #if DEBUG
-    print("\((file as NSString).lastPathComponent)[\(line)]: \(message)")
-    #endif
-}
 

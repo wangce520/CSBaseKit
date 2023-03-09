@@ -8,13 +8,13 @@
 import Foundation
 
 /// 快速使用苹果字体方法
-func PingFangSCFont(_ size : CGFloat) -> UIFont {
+public func PingFangSCFont(_ size : CGFloat) -> UIFont {
     return UIFont(name: "PingFangSC-Regular", size: size)!
 }
-func PingFangSCMFont(_ size : CGFloat) -> UIFont {
+public func PingFangSCMFont(_ size : CGFloat) -> UIFont {
     return UIFont(name: "PingFangSC-Medium", size: size)!
 }
-func PingFangSCBFont(_ size : CGFloat) -> UIFont {
+public func PingFangSCBFont(_ size : CGFloat) -> UIFont {
     return UIFont(name: "PingFangSC-Semibold", size: size)!
 }
 

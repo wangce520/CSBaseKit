@@ -7,7 +7,15 @@
 
 import Foundation
 
-extension UIDevice {
+public let SCREEN_WIDTH = UIDevice.current.screenWidth
+public let SCREEN_HEIGHT = UIDevice.current.screenHeight
+public let NAVBAR_HIGHT : CGFloat = UIDevice.current.navBarHeight
+public let NAVBAR_FULL_HEIGHT : CGFloat = UIDevice.current.fullNavBarHeight
+public let TABBAR_HEIGHT : CGFloat = UIDevice.current.tabBarHeight
+public let TABBAR_FULL_HEIGHT : CGFloat = UIDevice.current.fullTabBarHeight
+public let SAFEAREA_INSETS = UIDevice.current.safeAreaInsets
+
+public extension UIDevice {
     
     /// 安全区域
     var safeAreaInsets : UIEdgeInsets {
@@ -19,7 +27,7 @@ extension UIDevice {
         return edgeInsets
     }
     
-    /// 导航栏高度
+    /// 状态栏高度
     var statusBarHeight : CGFloat {
         var statusBarHeight: CGFloat = 0
         if #available(iOS 13.0, *) {
@@ -31,4 +39,33 @@ extension UIDevice {
         return statusBarHeight
     }
 
+    /// 导航栏高度
+    var navBarHeight : CGFloat {
+        return 44.0
+    }
+    
+    /// 导航栏高度
+    var fullNavBarHeight : CGFloat {
+        return navBarHeight + statusBarHeight
+    }
+    
+    /// 底部栏高度
+    var tabBarHeight : CGFloat {
+        return 49.0
+    }
+    
+    /// 导航栏高度
+    var fullTabBarHeight : CGFloat {
+        return tabBarHeight + 34.0
+    }
+    
+    /// 设备宽度
+    var screenWidth : CGFloat {
+        return UIScreen.main.bounds.size.width
+    }
+    
+    /// 设备高度
+    var screenHeight : CGFloat {
+        return UIScreen.main.bounds.size.height
+    }
 }

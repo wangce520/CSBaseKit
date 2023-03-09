@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension UIColor {
+public extension UIColor {
     
     /// 随机色
     class func random() -> UIColor {

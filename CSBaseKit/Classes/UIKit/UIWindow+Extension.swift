@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension UIWindow {
+public extension UIWindow {
     
     // 获取当前显示的controller
     func visibleViewController() -> UIViewController? {
