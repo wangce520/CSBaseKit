@@ -109,7 +109,7 @@ public extension UIView {
 }
 
 // MARK: - 设置圆角、边框
-extension UIView {
+public extension UIView {
     
     var cornerRadius: CGFloat {
         get {
@@ -146,7 +146,7 @@ fileprivate let retryActionSaveKey = "__tipview_retryAction"
 fileprivate let tipViewSaveKey = "__tipview"
 
 // MARK: - TipView
-extension UIView {
+public extension UIView {
     
     /// 展示tipView
     func showTipView(_ tipView : UIView, retryAction : (()->Void)? = nil) {
