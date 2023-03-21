@@ -18,7 +18,7 @@ public let SAFEAREA_INSETS = UIDevice.current.safeAreaInsets
 public extension UIDevice {
     
     /// 安全区域
-    var safeAreaInsets : UIEdgeInsets {
+    public var safeAreaInsets : UIEdgeInsets {
         var edgeInsets = UIEdgeInsets.zero
         if #available(iOS 11.0, *) {
             let window = UIApplication.shared.currentKeyWindow
@@ -28,7 +28,7 @@ public extension UIDevice {
     }
     
     /// 状态栏高度
-    var statusBarHeight : CGFloat {
+    public var statusBarHeight : CGFloat {
         var statusBarHeight: CGFloat = 0
         if #available(iOS 13.0, *) {
             let window = UIApplication.shared.currentKeyWindow
@@ -40,32 +40,37 @@ public extension UIDevice {
     }
 
     /// 导航栏高度
-    var navBarHeight : CGFloat {
+    public var navBarHeight : CGFloat {
         return 44.0
     }
     
     /// 导航栏高度
-    var fullNavBarHeight : CGFloat {
+    public var fullNavBarHeight : CGFloat {
         return navBarHeight + statusBarHeight
     }
     
     /// 底部栏高度
-    var tabBarHeight : CGFloat {
+    public var tabBarHeight : CGFloat {
         return 49.0
     }
     
     /// 导航栏高度
-    var fullTabBarHeight : CGFloat {
+    public var fullTabBarHeight : CGFloat {
         return tabBarHeight + 34.0
     }
     
     /// 设备宽度
-    var screenWidth : CGFloat {
+    public var screenWidth : CGFloat {
         return UIScreen.main.bounds.size.width
     }
     
     /// 设备高度
-    var screenHeight : CGFloat {
+    public var screenHeight : CGFloat {
         return UIScreen.main.bounds.size.height
+    }
+    
+    /// 判断是否iPhone
+    public var isiPad : Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
     }
 }
